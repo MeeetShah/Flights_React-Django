@@ -1,0 +1,93 @@
+.flight-card-simple {
+    width: 70%;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  .flight-header-simple {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  
+  .airline-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .airline-logo {
+    width: 40px;
+  }
+  
+  .flight-number {
+    font-size: 0.9em;
+    color: #333;
+  }
+  
+  .flight-times {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+  }
+  
+  .departure-info, .arrival-info {
+    text-align: center;
+    justify-content: space-between;
+  }
+  
+  .flight-duration {
+    text-align: center;
+    font-size: 0.9em;
+    color: #777;
+  }
+  
+  .price-info {
+    text-align: center;
+  }
+  
+  .price-info h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #f36;
+  }
+  
+  .price-info p {
+    font-size: 0.8em;
+    color: #999;
+  }
+  
+  .book-button {
+    background-color: #ff6f61;
+    color: white;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .book-button:hover {
+    background-color: #ff5a4d;
+  }
+  
+  .flight-details-link {
+    margin-top: 10px;
+    text-align: right;
+  }
+  
+  .flight-details-link a {
+    font-size: 0.8em;
+    color:  #f36;
+    text-decoration: none;
+  }
+  
+  .flight-details-link a:hover {
+    text-decoration: underline;
+  }
