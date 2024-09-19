@@ -1,0 +1,86 @@
+.flight-card {
+    width: 600px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .flight-header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .flight-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  
+  .flight-header p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+  }
+  
+  .flight-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .flight-info {
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+  }
+  
+  .time-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .time-info div {
+    text-align: left;
+  }
+  
+  .flight-duration {
+    text-align: center;
+    align-self: center;
+    justify-content: space-between;
+   
+    padding-left: 15px;
+    padding-right: 15px;
+   
+    
+  }
+  
+  .flight-duration p {
+    font-size: 0.9em;
+    color: #000000;
+  }
+  
+  .baggage-info {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .baggage-info div {
+    text-align: center;
+  }
+  
+  .baggage-info h4 {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #333;
+  }
+  
+  .baggage-info p {
+    font-size: 0.8em;
+    color: #666;
+  }

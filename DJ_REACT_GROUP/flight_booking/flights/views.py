@@ -77,3 +77,5 @@ class PaymentCreateAPIView(generics.CreateAPIView):
             booking_id = self.request.data.get('booking_id')
             booking = Booking.objects.get(id=booking_id)
             serializer.save(booking=booking)
+
+
