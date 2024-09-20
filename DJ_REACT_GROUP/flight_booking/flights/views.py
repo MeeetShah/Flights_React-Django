@@ -13,7 +13,6 @@ class AirlineListAPIView(generics.ListCreateAPIView):
     queryset = Airline.objects.all()
     serializer_class = AirlineSerializer
 
-
     # List and search Airports    :lists airports and allows creating new ones.
 class AirportListAPIView(generics.ListCreateAPIView):
     queryset = Airport.objects.all()

@@ -1,48 +1,45 @@
-
 import React, { useState } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-// import { apis } from '../api';
+
 
 
 const Signup = () => {
-    //     const [username, setUsername] = useState('');
-    //     const [password, setPassword] = useState('');
-    //     const [email, setEmail] = useState('');
-    //     const [message, setMessage] = useState('');
-    //     const navigate = useNavigate()
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+    const navigate = useNavigate()
+   
 
+    const handleSignup = (e) => {
+        e.preventDefault();
+    
+        const formData = {
+            username: username,
+            password: password,
+            email: email
+        };
+    
+        axios.post('http://127.0.0.1:8000/api/accounts/signup/', formData)
+            .then(response => {
+                console.log('Signup successful:', response.data);
+                alert('Signup successful.');
+            })
+            .catch(error => {
+                console.error('Signup error:', error.response.data);
+                alert('Signup failed: ' + error.response.data.error);
+            });
+    };
 
+    const Gotologin = () =>{
+        navigate("/login")
+    }
 
-
-
-
-    //     const handleSignup = async (e) => {
-    //         e.preventDefault();
-
-    //         try {
-    //             const response = await axios.post(apis.signupapi, {
-    //                 username: username,
-    //                 password: password,
-    //                 email: email
-    //             });
-
-    //             setMessage(`Signup successful. Token: ${response.data.token}`);
-    //         } catch (error) {
-    //             if (error.response) {
-    //                 setMessage(`Error: ${error.response.data.error}`);
-    //             } else {
-    //                 setMessage('An error occurred. Please try again.');
-    //             }
-    //         }
-    //     };
-
-    //     const Gotologin = () => {
-    //         navigate("/login")
-    //     }
 
     return (
         <>
+
 
             <section className="vh-100 bg-image"
                 style={{ backgroundImage: "url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp')" }}>
@@ -54,7 +51,7 @@ const Signup = () => {
                                     <div className="card-body p-5">
                                         <h2 className="text-uppercase text-center mb-5">Create an account</h2>
 
-                                        <form>
+                                        <form onSubmit={handleSignup}>
 
                                             <div className="form-outline mb-4">
                                                 <label className="form-label" htmlFor="name">Your Name</label>
@@ -62,7 +59,7 @@ const Signup = () => {
                                                     type="text"
                                                     id="name"
                                                     className="form-control form-control-lg"
-
+                                                    onChange={(e) => { setUsername(e.target.value) }}
 
                                                 />
 
@@ -74,7 +71,7 @@ const Signup = () => {
                                                     type="email"
                                                     id="email"
                                                     className="form-control form-control-lg"
-
+                                                    onChange={(e) => { setEmail(e.target.value) }}
 
                                                 />
 
@@ -86,7 +83,7 @@ const Signup = () => {
                                                     type="password"
                                                     id="password"
                                                     className="form-control form-control-lg"
-
+                                                    onChange={(e) => { setPassword(e.target.value) }}
 
                                                 />
 
@@ -96,12 +93,12 @@ const Signup = () => {
                                                 <button type="submit" className="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Signup</button>
                                             </div>
 
-                                            <p className="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!" className="fw-bold text-body"><u>Login here</u></a></p>
+                                            <p className="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!" onClick={Gotologin} className="fw-bold text-body"><u>Login here</u></a></p>
 
                                         </form>
-                                        {/* {message && <p>{message}</p>} */}
+                                        {message && <p>{message}</p>}
 
-
+                                     
 
                                     </div>
                                 </div>
@@ -110,9 +107,9 @@ const Signup = () => {
                     </div>
                 </div>
             </section>
-
+            
         </>
-    )
-}
+    );
+};
 
-export default Signup
+export default Signup;

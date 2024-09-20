@@ -123,7 +123,7 @@ const Navbar = () => {
                 <a class="nav-link" href="/signup">Signup</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/signout">Signout</a>
+                <a class="nav-link" href="/login">Login</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
