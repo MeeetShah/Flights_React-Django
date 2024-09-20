@@ -72,6 +72,7 @@ const FlightCard = () => {
           </div>
         </div>
       </div>
+      <button>Continue</button>
     </div>
   );
 };
