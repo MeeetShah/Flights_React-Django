@@ -1,13 +1,17 @@
 import React from 'react';
 import "../FlightCard.css"; // Add the CSS file for styling
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 
 const Filteredbytime = () => {
   const location = useLocation();
   const filterFlights = location.state?.filteredFlights || []; // Safe access with fallback to empty array
-
+  const navigate = useNavigate()
   console.log("Filtered Flights:", filterFlights);
 
+  const handleContinue = ()=>{
+    navigate('/address')
+  }
   return (
     <div className="flight-container">
       {filterFlights.length > 0 ? (
@@ -62,7 +66,7 @@ const Filteredbytime = () => {
                 </div>
               </div>
             </div>
-            <button>Continue</button>
+            <button onClick={handleContinue}> Continue</button>
           </div>
         ))
       ) : (

@@ -9,6 +9,8 @@ import FlightCard from './Components/FlightCard'
 import Login from './Components/Login'
 import DeparturePage from './Components/DeparturePage'
 import Filteredbytime from './Components/Filteredbytime'
+import Continue from './Components/Continue'
+import Billing from './Components/Billing'
 
 
 const App = () => {
@@ -20,11 +22,13 @@ const App = () => {
         <Routes>
          <Route path='/' element={<Home/>}></Route>
          <Route path='/signup' element={<Signup/>}></Route>
-         <Route path='/login' element={<DeparturePage/>}></Route>
+         <Route path='/login' element={<Login/>}></Route>
          <Route path='/home' element={<Search/>}></Route>
          <Route path='/flightlist' element={<Flightlist/>}></Route>
          <Route path='/flightcard' element={<FlightCard/>}></Route>
          <Route path='/filteredbytime' element={<Filteredbytime/>}></Route>
+         <Route path='/address' element={<Continue/>}></Route>
+         <Route path='/billing' element={<Billing/>}></Route>
         </Routes>
       </Router>
       

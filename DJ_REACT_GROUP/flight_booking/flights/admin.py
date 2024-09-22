@@ -44,8 +44,8 @@ class BookingAdmin(admin.ModelAdmin):
 # Admin configuration for Passenger
 @admin.register(Passenger)
 class PassengerAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'passport_number', 'nationality', 'date_of_birth')
-    search_fields = ('first_name', 'last_name', 'passport_number', 'nationality')
+    list_display = ('first_name', 'last_name')
+    search_fields = ('first_name', 'last_name')
     ordering = ('last_name', 'first_name')
 
 # Admin configuration for Payment

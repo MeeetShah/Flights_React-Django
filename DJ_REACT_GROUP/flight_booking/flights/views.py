@@ -77,4 +77,61 @@ class PaymentCreateAPIView(generics.CreateAPIView):
             booking = Booking.objects.get(id=booking_id)
             serializer.save(booking=booking)
 
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+from .models import Passenger
+from .serializers import PassengerSerializer
 
+# @api_view(['POST'])
+# def add_passenger(request):
+#     if request.method == 'POST':
+#         serializer = PassengerSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from .models import Passenger
+import json
+
+@csrf_exempt
+def add_passenger(request):
+    if request.method == 'POST':
+        try:
+            # Parse the incoming data
+            data = json.loads(request.body)
+            first_name = data.get('first_name')
+            last_name = data.get('last_name')
+            middle_name = data.get('middle_name')
+            email = data.get('email')
+            number = data.get('number')
+            
+            # Create and save a new Passenger instance
+            passenger = Passenger(
+                first_name=first_name,
+                last_name=last_name,
+                middle_name=middle_name,
+                email=email,
+                number=number
+            )
+            passenger.save()
+
+            return JsonResponse({'message': 'Passenger added successfully'}, status=201)
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=400)
+    return JsonResponse({'error': 'Invalid request method'}, status=405)
+
+
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from .models import Passenger
+from .serializers import PassengerSerializer
+
+@api_view(['GET'])
+def get_passengers(request):
+    passengers = Passenger.objects.all()
+    serializer = PassengerSerializer(passengers, many=True)
+    return Response(serializer.data)

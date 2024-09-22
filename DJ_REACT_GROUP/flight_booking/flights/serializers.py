@@ -36,7 +36,7 @@ class FlightSerializer(serializers.ModelSerializer):
 class PassengerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Passenger
-        fields = '__all__'
+        fields = ['first_name', 'last_name', 'middle_name', 'email', 'number']
 
 
 class BookingSerializer(serializers.ModelSerializer):
@@ -53,6 +53,11 @@ class BookingSerializer(serializers.ModelSerializer):
             passenger, created = Passenger.objects.get_or_create(**passenger_data)
             booking.passengers.add(passenger)
         return booking
+
+# class PassengerSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Passenger
+#         fields = ['first_name', 'last_name', 'date_of_birth', 'passport_number', 'nationality']
 
 
 class PaymentSerializer(serializers.ModelSerializer):

@@ -1,8 +1,9 @@
 import React from "react";
 import "../FlightCard.css"; // Add the CSS file for styling
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import DeparturePage from "./DeparturePage";
+
 
 const FlightCard = () => {
   const location = useLocation();
@@ -13,6 +14,13 @@ const FlightCard = () => {
   const flightdata = flights.find(
     (flight) => flight.flight_number === location.state.flight_number
   );
+
+  const navigate = useNavigate()
+  
+  const handleContinue=()=>{
+    navigate("/address")
+  }
+
   console.log("flightdata", flightdata);
 
 
@@ -77,7 +85,7 @@ const FlightCard = () => {
             </div>
           </div>
         </div>
-        <button>Continue</button>
+        <button onClick={handleContinue}>Continue</button>
       </div>
   
       {/* Align this to the right */}

@@ -2,8 +2,9 @@ from django.urls import path
 from .views import (
     AirlineListAPIView, AirportListAPIView, FlightListAPIView, 
     FlightDetailAPIView, BookingCreateAPIView, BookingDetailAPIView,
-    PaymentCreateAPIView
+    PaymentCreateAPIView,add_passenger
 )
+from . import views
 
 urlpatterns = [
     path('airlines/', AirlineListAPIView.as_view(), name='airline-list'),
@@ -13,4 +14,6 @@ urlpatterns = [
     path('bookings/', BookingCreateAPIView.as_view(), name='booking-create'),
     path('bookings/<int:id>/', BookingDetailAPIView.as_view(), name='booking-detail'),
     path('payments/', PaymentCreateAPIView.as_view(), name='payment-create'),
+    path('add-passenger/', views.add_passenger, name='add-passenger'),
+    path('passengers/', views.get_passengers, name='get_passengers'),
 ]

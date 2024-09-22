@@ -52,9 +52,10 @@ class Flight(models.Model):
 class Passenger(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    date_of_birth = models.DateField()
-    passport_number = models.CharField(max_length=15, unique=True)
-    nationality = models.CharField(max_length=100)
+    middle_name = models.CharField(max_length=100)
+    email=models.EmailField(default="meet@gmail.com")
+    number= models.CharField(max_length=10,default=1233)
+
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
