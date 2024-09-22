@@ -17,8 +17,12 @@ const FlightCard = () => {
 
   const navigate = useNavigate()
   
-  const handleContinue=()=>{
-    navigate("/address")
+  const handleContinue=(flight_number)=>{
+    navigate("/address",{
+      state:{
+        flight_number:flight_number
+      }
+    })
   }
 
   console.log("flightdata", flightdata);
@@ -85,7 +89,7 @@ const FlightCard = () => {
             </div>
           </div>
         </div>
-        <button onClick={handleContinue}>Continue</button>
+        <button onClick={()=>{handleContinue(flightdata.flight_number)}}>Continue</button>
       </div>
   
       {/* Align this to the right */}

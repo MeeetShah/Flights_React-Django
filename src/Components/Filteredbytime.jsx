@@ -9,8 +9,12 @@ const Filteredbytime = () => {
   const navigate = useNavigate()
   console.log("Filtered Flights:", filterFlights);
 
-  const handleContinue = ()=>{
-    navigate('/address')
+  const handleContinue=(flight_number)=>{
+    navigate("/address",{
+      state:{
+        flight_number:flight_number
+      }
+    })
   }
   return (
     <div className="flight-container">
@@ -66,7 +70,7 @@ const Filteredbytime = () => {
                 </div>
               </div>
             </div>
-            <button onClick={handleContinue}> Continue</button>
+            <button onClick={()=>{handleContinue(flight.flight_number)}}> Continue</button>
           </div>
         ))
       ) : (

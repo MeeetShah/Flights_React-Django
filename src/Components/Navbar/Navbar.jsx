@@ -110,15 +110,7 @@ const Navbar = () => {
               <li class="nav-item">
                 <a class="nav-link" href="/about">About</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/about">Offer</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/about">Seats</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/about">Destination</a>
-              </li>
+         
               <li class="nav-item">
                 <a class="nav-link" href="/signup">Signup</a>
               </li>

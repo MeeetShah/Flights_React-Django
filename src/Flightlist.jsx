@@ -43,11 +43,7 @@ const Flightlist = () => {
             <div key={flight.id} className="flight-card-simple">
               <div className="flight-header-simple">
                 <div className="airline-info">
-                  <img
-                    src={flight.airline.logo || "Logo.png"} 
-                    alt="not found"
-                    className="airline-logo"
-                  />
+              
                   <div className="flight-number">
                     <h3>{flight.airline}</h3>
                   </div>
@@ -78,9 +74,7 @@ const Flightlist = () => {
                 </div>
               </div>
 
-              <div className="flight-details-link">
-                <a href="#">Flight Details </a>
-              </div>
+             
             </div>
           ))
         )}

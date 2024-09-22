@@ -397,7 +397,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../Continue.css';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 
 
 const TravellerForm = () => {
@@ -408,6 +409,11 @@ const TravellerForm = () => {
   const [contactDetails, setContactDetails] = useState({ mobile: '', email: '' });
   const [showTravellerForm, setShowTravellerForm] = useState(false);
   const navigate =  useNavigate()
+  const location = useLocation()
+
+  const flight_number = location.state.flight_number
+  console.log("continue...",flight_number);
+  
   
   const handleNumOfTravellersSubmit = (e) => {
     e.preventDefault();
@@ -468,7 +474,11 @@ const TravellerForm = () => {
       
       responses.forEach(response => {
         console.log('Passenger added:', response.data);
-        navigate("/billing")
+        navigate("/billing",{
+          state:{
+            flight_number : flight_number
+          }
+        })
       });
       
     } catch (error) {
@@ -479,7 +489,7 @@ const TravellerForm = () => {
   
 
   return (
-    <div className="container">
+    <div className="containerr">
       {!showTravellerForm && !showContactForm && (
         <form onSubmit={handleNumOfTravellersSubmit} className="form">
           <fieldset className="fieldset">
